@@ -47,7 +47,7 @@ router.put('/:id', (req, res) => {
   },
   {
     where:{
-      tag_id:req.params.id
+      id:req.params.id
     }
   })
   .then((updatedTag) => {
@@ -62,7 +62,7 @@ router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
   Tag.destroy({
     where:{
-      tag_id:req.params.id
+      id:req.params.id
     }
   })
   .then((deletedTag) => {

@@ -9,12 +9,12 @@ router.get('/', (req, res) => {
   Product.findAll({
     include: [
       {
-        model:Category,
-        attributes:['category_id','category_name']
+        model:Category
+        //attributes:['category_id','category_name']
       },
       {
-        model:Tag,
-        attributes:['tag_id','tag_name']
+        model:Tag
+        //attributes:['tag_id','tag_name']
       }
     ]
   })
@@ -30,17 +30,17 @@ router.get('/', (req, res) => {
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
-  Product.findByPk({
+  Product.findOne({
     where: {
-      product_id:req.params.id
+      id:req.params.id
     },
     include:[{
       model:Category,
-      attributes:['category_id','category_name']
+      //attributes:['category_id','category_name']
     },
     {
       model:Tag,
-      attributes:['tag_id','tag_name']
+      //attributes:['tag_id','tag_name']
     }]
   })
   .then(productData => {
@@ -130,7 +130,7 @@ router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where:{
-      product_id:req.params.id
+      id:req.params.id
     }
   })
   .then((deletedProduct) => {

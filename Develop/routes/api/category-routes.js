@@ -8,13 +8,12 @@ router.get('/', (req, res) => {
   Category.findAll({
     include:[
       {
-        model:Product,
-        attributes: ['product_id', 'product_name','price','stock','category_id']
+        model:Product
       }
     ]
   })
   .then(categoryData => {
-    res.status(200).json(categoryData)
+    res.json(categoryData)
   })
   .catch(err => {
     res.status(500).json(err)
@@ -24,14 +23,13 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
-  Category.findByPk({
+  Category.findOne({
     where:{
-      category_id:req.params.id
+      id:req.params.id
     },
     include:[
       {
-        model:Product,
-        attributes: ['product_id', 'product_name','price','stock','category_id']
+        model:Product
       }
     ]
   })
@@ -64,7 +62,7 @@ router.put('/:id', (req, res) => {
   },
   {
     where:{
-      category_id:req.params.id
+      id:req.params.id
     }
   })
   .then((updatedCategory) => {
@@ -79,7 +77,7 @@ router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
     where:{
-      category_id:req.params.id
+      id:req.params.id
     }
   })
   .then((deletedCategory) => {
