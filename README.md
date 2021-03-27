@@ -28,7 +28,7 @@
   Please follow this *[link](https://youtu.be/keoOH4314Xo)* to watch the walkthrough video.
 
   #### Screenshots:
-    ![Main Screenshot](./Assets/screenshots/screenshot.png)
+    ![Main Screenshot](./Assets/screenshot.png)
 
   ## Installation:
   Run the following commands in your integrated terminal to initalize the application:
